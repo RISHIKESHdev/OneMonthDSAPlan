@@ -11,40 +11,40 @@ public class qList {
             BufferedReader r;
             switch(key){
                 case "math":
-                    r = new BufferedReader( new FileReader("C:\\Users\\RISHIsquad\\Desktop\\DSA23\\common\\questions\\math.txt"));
+                    r = new BufferedReader( new FileReader("C:\\Users\\RISHIsquad\\Desktop\\OneMonthDSAPlan\\common\\questions\\math.txt"));
                     break;
                 case "hash":
-                    r = new BufferedReader( new FileReader("C:\\Users\\RISHIsquad\\Desktop\\DSA23\\common\\questions\\hash.txt"));
+                    r = new BufferedReader( new FileReader("C:\\Users\\RISHIsquad\\Desktop\\OneMonthDSAPlan\\common\\questions\\hash.txt"));
                     break;
                 case "convert":
-                    r = new BufferedReader( new FileReader("C:\\Users\\RISHIsquad\\Desktop\\DSA23\\common\\questions\\convert.txt"));
+                    r = new BufferedReader( new FileReader("C:\\Users\\RISHIsquad\\Desktop\\OneMonthDSAPlan\\common\\questions\\convert.txt"));
                     break;
                 case "trie":
-                    r = new BufferedReader( new FileReader("C:\\Users\\RISHIsquad\\Desktop\\DSA23\\common\\questions\\trie.txt"));
+                    r = new BufferedReader( new FileReader("C:\\Users\\RISHIsquad\\Desktop\\OneMonthDSAPlan\\common\\questions\\trie.txt"));
                     break;
                 case "twopointer":
-                    r = new BufferedReader( new FileReader("C:\\Users\\RISHIsquad\\Desktop\\DSA23\\common\\questions\\twopointer.txt"));
+                    r = new BufferedReader( new FileReader("C:\\Users\\RISHIsquad\\Desktop\\OneMonthDSAPlan\\common\\questions\\twopointer.txt"));
                     break;
                 case "string":
-                    r = new BufferedReader( new FileReader("C:\\Users\\RISHIsquad\\Desktop\\DSA23\\common\\questions\\string.txt"));
+                    r = new BufferedReader( new FileReader("C:\\Users\\RISHIsquad\\Desktop\\OneMonthDSAPlan\\common\\questions\\string.txt"));
                     break;
                 case "dynamicprog":
-                    r = new BufferedReader( new FileReader("C:\\Users\\RISHIsquad\\Desktop\\DSA23\\common\\questions\\dynamicprog.txt"));
+                    r = new BufferedReader( new FileReader("C:\\Users\\RISHIsquad\\Desktop\\OneMonthDSAPlan\\common\\questions\\dynamicprog.txt"));
                     break;
                 case "binarysearch":
-                    r = new BufferedReader( new FileReader("C:\\Users\\RISHIsquad\\Desktop\\DSA23\\common\\questions\\binarysearch.txt"));
+                    r = new BufferedReader( new FileReader("C:\\Users\\RISHIsquad\\Desktop\\OneMonthDSAPlan\\common\\questions\\binarysearch.txt"));
                     break;
                 case "bitmanipulation":
-                    r = new BufferedReader( new FileReader("C:\\Users\\RISHIsquad\\Desktop\\DSA23\\common\\questions\\bitmanipulation.txt"));
+                    r = new BufferedReader( new FileReader("C:\\Users\\RISHIsquad\\Desktop\\OneMonthDSAPlan\\common\\questions\\bitmanipulation.txt"));
                     break;
                 case "array":
-                    r = new BufferedReader( new FileReader("C:\\Users\\RISHIsquad\\Desktop\\DSA23\\common\\questions\\array.txt"));
+                    r = new BufferedReader( new FileReader("C:\\Users\\RISHIsquad\\Desktop\\OneMonthDSAPlan\\common\\questions\\array.txt"));
                     break;
                 case "recursion":
-                    r = new BufferedReader( new FileReader("C:\\Users\\RISHIsquad\\Desktop\\DSA23\\common\\questions\\recursion.txt"));
+                    r = new BufferedReader( new FileReader("C:\\Users\\RISHIsquad\\Desktop\\OneMonthDSAPlan\\common\\questions\\recursion.txt"));
                     break;
                 case "stack":
-                    r = new BufferedReader( new FileReader("C:\\Users\\RISHIsquad\\Desktop\\DSA23\\common\\questions\\stack.txt"));
+                    r = new BufferedReader( new FileReader("C:\\Users\\RISHIsquad\\Desktop\\OneMonthDSAPlan\\common\\questions\\stack.txt"));
                     break;
                 default:
                     r = new BufferedReader( new FileReader( "./math.txt" ));

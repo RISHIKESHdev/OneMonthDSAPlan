@@ -1,0 +1,7 @@
+1.  Given an index print sum of integers from 0 to index.
+2.  Maximum sum subset with no two consecutive elements.
+3.  Maximum sum subset with no two consecutive elements with two Arrays.
+4.  Find min cost to fly from 0th city to n-1 city with (i+1) or (i+3) trip.
+5.  Min cost for frog to reach 'n' - 1.
+6.  Min cost for frog to reach 'n' - 1 (i+1) or (i+k) trip.
+7.  Max happy vacation Activity out of three No consecutive.
