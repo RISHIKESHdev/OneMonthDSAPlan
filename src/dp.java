@@ -31,6 +31,27 @@ public class dp {
             case 7: // max happy vacation Activity out of three
                 System.out.println(maxHappyVacation(input.getNumArr(in),input.getNumArr(in),input.getNumArr(in)));
                 break;
+            case 8: //No of journey that give odd sum with (1 or 2) steps.
+                System.out.println(oddSumJourney2(input.getNumArr(in)));
+                break;
+            case 9: //No of journey that give even sum with (1 or 2) steps.
+                System.out.println(evenSumJourney2(input.getNumArr(in)));
+                break;
+            case 10: //No of journey that give odd sum with (1 or 2 or 3) steps.
+                System.out.println(oddSumJourney3(input.getNumArr(in)));
+                break;
+            case 11: //No of journey that give even sum with (1 or 2 or 3) steps.
+                System.out.println(evenSumJourney3(input.getNumArr(in)));
+                break;
+            case 12: //Save princess with maxpoints.
+                System.out.println(savePrincess(input.getNum(in),input.getNumArr(in),in));
+                break;
+            case 13: //Count no of Palindrome Substring
+                System.out.println(countPalindromeSubstring(input.getString(in)));
+                break;
+            case 14: //Print longest Palindrome
+                System.out.println(LongPalindromeSubstring(input.getString(in)));
+                break;
         }
         in.close();
     }
@@ -97,5 +118,192 @@ public class dp {
             dpHWork[i]=homeWork[i]+Math.max(dpBug[i-1],dpSwim[i-1]);
         }
         return Math.max(dpSwim[swim.length-1], Math.max(dpBug[swim.length-1], dpHWork[swim.length-1]));
+    }
+    public static int oddSumJourney2(int[] nums){
+        int[][] dp = new int[nums.length][2];
+        int i=2;
+        dp[0][1]=(nums[0]%2==0)?(1):(dp[0][0]=1);
+        if(nums[1]%2==0){
+            dp[1][1] = dp[0][1];
+            dp[1][0] = dp[0][0];
+        } else {
+            dp[1][1] = dp[0][0];
+            dp[1][0] = dp[0][1];
+        }
+        while(i<nums.length){
+            if (nums[i] % 2 == 0) {
+                dp[i][1] = dp[i - 1][1] + dp[i - 2][1];
+                dp[i][0] = dp[i - 1][0] + dp[i - 2][0];
+            } else {
+                dp[i][1] = dp[i - 1][0] + dp[i - 2][0];
+                dp[i][0] = dp[i - 1][1] + dp[i - 2][1];
+            }
+            i++;
+        }
+        return dp[nums.length-1][0];
+    }
+    public static int evenSumJourney2(int[] nums){
+        int[][] dp = new int[nums.length][2];
+        int i=2;
+        dp[0][1]=(nums[0]%2==0)?(1):(dp[0][0]=1);
+        if(nums[1]%2==0){
+            dp[1][1] = dp[0][1];
+            dp[1][0] = dp[0][0];
+        } else {
+            dp[1][1] = dp[0][0];
+            dp[1][0] = dp[0][1];
+        }
+        while(i<nums.length){
+            if (nums[i] % 2 == 0) {
+                dp[i][1] = dp[i - 1][1] + dp[i - 2][1];
+                dp[i][0] = dp[i - 1][0] + dp[i - 2][0];
+            } else {
+                dp[i][1] = dp[i - 1][0] + dp[i - 2][0];
+                dp[i][0] = dp[i - 1][1] + dp[i - 2][1];
+            }
+            i++;
+        }
+        return dp[nums.length-1][1];
+    }
+    public static int oddSumJourney3(int[] nums){
+        int[][] dp = new int[nums.length][2];
+        int i=2;
+        dp[0][1]=(nums[0]%2==0)?(1):(dp[0][0]=1);
+        if(nums[1]%2==0){
+            dp[1][1] = dp[0][1];
+            dp[1][0] = dp[0][0];
+        } else {
+            dp[1][1] = dp[0][0];
+            dp[1][0] = dp[0][1];
+        }
+        if(nums[2]%2==0){
+            dp[1][1] = dp[0][1]+dp[1][1];
+            dp[1][0] = dp[0][0]+dp[1][0];
+        } else {
+            dp[1][1] = dp[0][0]+dp[1][0];
+            dp[1][0] = dp[0][1]+dp[1][1];
+        }
+        while(i<nums.length){
+            if (nums[i] % 2 == 0) {
+                dp[i][1] = dp[i - 1][1] + dp[i - 2][1] + dp[i - 3][1];
+                dp[i][0] = dp[i - 1][0] + dp[i - 2][0] + dp[i - 3][0];
+            } else {
+                dp[i][1] = dp[i - 1][0] + dp[i - 2][0] + dp[i - 3][0];
+                dp[i][0] = dp[i - 1][1] + dp[i - 2][1] + dp[i - 3][1];
+            }
+            i++;
+        }
+        return dp[nums.length-1][0];
+    }
+    public static int evenSumJourney3(int[] nums){
+        int[][] dp = new int[nums.length][2];
+        int i=2;
+        dp[0][1]=(nums[0]%2==0)?(1):(dp[0][0]=1);
+        if(nums[1]%2==0){
+            dp[1][1] = dp[0][1];
+            dp[1][0] = dp[0][0];
+        } else {
+            dp[1][1] = dp[0][0];
+            dp[1][0] = dp[0][1];
+        }
+        if(nums[2]%2==0){
+            dp[1][1] = dp[0][1]+dp[1][1];
+            dp[1][0] = dp[0][0]+dp[1][0];
+        } else {
+            dp[1][1] = dp[0][0]+dp[1][0];
+            dp[1][0] = dp[0][1]+dp[1][1];
+        }
+        while(i<nums.length){
+            if (nums[i] % 2 == 0) {
+                dp[i][1] = dp[i - 1][1] + dp[i - 2][1] + dp[i - 3][1];
+                dp[i][0] = dp[i - 1][0] + dp[i - 2][0] + dp[i - 3][0];
+            } else {
+                dp[i][1] = dp[i - 1][0] + dp[i - 2][0] + dp[i - 3][0];
+                dp[i][0] = dp[i - 1][1] + dp[i - 2][1] + dp[i - 3][1];
+            }
+            i++;
+        }
+        return dp[nums.length-1][1];
+    }
+    public static String savePrincess(int testCase,int[] nums,Scanner in){
+        int n=nums.length;
+        String res="";
+        while(testCase>=0){
+            int[] dp1=new int[n+1];
+            int[] dp2=new int[n+1];
+            int caseLength=in.nextInt();
+            dp1[0]=1;
+            dp2[0]=1;
+            for(int i=1;i<=caseLength;i++){
+                String inStr=in.nextLine();
+                char sign = inStr.charAt(0);
+                int num=0;
+                if(inStr.length()>1) num=(int)(inStr.charAt(1));
+                if (sign == '+') {
+                    dp1[(int) i] = Math.max(dp1[(int) (i - 1)] + num, Math.max(dp2[(int) (i - 1)] + num, dp1[(int) (i - 1)]));
+                    dp2[(int) i] = Math.min(dp1[(int) (i - 1)] + num, Math.min(dp2[(int) (i - 1)] + num, dp2[(int) (i - 1)]));
+                } else if (sign == '-') {
+                    dp1[(int) i] = Math.max(dp1[(int) (i - 1)] - num, Math.max(dp2[(int) (i - 1)] - num, dp1[(int) (i - 1)]));
+                    dp2[(int) i] = Math.min(dp1[(int) (i - 1)] - num, Math.min(dp2[(int) (i - 1)] - num, dp2[(int) (i - 1)]));
+                } else if (sign == '*') {
+                    dp1[(int) i] = Math.max(dp1[(int) (i - 1)] * num, Math.max(dp2[(int) (i - 1)] * num, dp1[(int) (i - 1)]));
+                    dp2[(int) i] = Math.min(dp1[(int) (i - 1)] * num, Math.min(dp2[(int) (i - 1)] * num, dp2[(int) (i - 1)]));
+                } else if (sign == '/') {
+                    dp1[(int) i] = Math.max(dp1[(int) (i - 1)] / num, Math.max(dp2[(int) (i - 1)] / num, dp1[(int) (i - 1)]));
+                    dp2[(int) i] = Math.min(dp1[(int) (i - 1)] / num, Math.min(dp2[(int) (i - 1)] / num, dp2[(int) (i - 1)]));
+                } else {
+                    dp1[(int) i] = Math.max(-1 * dp1[(int) (i - 1)], Math.max(-1 * dp2[(int) (i - 1)], dp1[(int) (i - 1)]));
+                    dp2[(int) i] = Math.min(-1 * dp1[(int) (i - 1)], Math.min(-1 * dp2[(int) (i - 1)], dp2[(int) (i - 1)]));
+                }
+            }
+            --testCase;
+            res=res+dp1[n];
+        }
+        return res;
+    }
+    public static int countPalindromeSubstring(String str){
+        int ans=0,n=str.length();
+        boolean[][] dp=new boolean[n][n];
+        for(int gap=0; gap<n; gap++){
+            for(int i=0, j=gap; i<n && j<n; i++, j++){
+                if(gap==0){
+                   dp[i][j]=true;
+                }else if(gap==1){
+                   dp[i][j]=(str.charAt(i)==str.charAt(j));
+                }else{
+                    if(str.charAt(i)==str.charAt(j) && dp[i+1][j-1]){
+                       dp[i][j]=true;
+                    }
+                }
+                if(dp[i][j]) ans++;
+            }
+        }
+        return ans;
+    }
+    public static String LongPalindromeSubstring(String str){
+        int n=str.length(),x=-1,y=-1,aux=-1;
+        String ans="";
+        boolean[][] dp=new boolean[n][n];
+        for(int gap=0; gap<n; gap++){
+            for(int i=0, j=gap; i<n && j<n; i++, j++){
+                if(gap==0){
+                   dp[i][j]=true;
+                }else if(gap==1){
+                   dp[i][j]=(str.charAt(i)==str.charAt(j));
+                }else{
+                    if(str.charAt(i)==str.charAt(j) && dp[i+1][j-1]){
+                       dp[i][j]=true;
+                    }
+                }
+                if(dp[i][j]){
+                    if(j-i>=aux){
+                        y=j;
+                        x=i;
+                        ans=str.substring(x, y+1);
+                    }
+                }
+            }
+        }
+        return ans;
     }
 }

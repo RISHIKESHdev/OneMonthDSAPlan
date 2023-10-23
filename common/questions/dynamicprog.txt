@@ -5,3 +5,10 @@
 5.  Min cost for frog to reach 'n' - 1.
 6.  Min cost for frog to reach 'n' - 1 (i+1) or (i+k) trip.
 7.  Max happy vacation Activity out of three No consecutive.
+8.  No of journey that give odd sum with (1 or 2) steps.
+9.  No of journey that give even sum with (1 or 2) steps.
+10. No of journey that give odd sum with (1 or 2 or 3) steps.
+11. No of journey that give even sum with (1 or 2 or 3) steps.
+12. Save princess with maxpoints.
+13. Count no of Palindromic substring.
+14. Print longest Palindrome.
