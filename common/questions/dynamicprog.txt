@@ -12,3 +12,5 @@
 12. Save princess with maxpoints.
 13. Count no of Palindromic substring.
 14. Print longest Palindrome.
+15. Count no of Palindrome non Continuous Substring.
+16. Min cost adjacent two element add.

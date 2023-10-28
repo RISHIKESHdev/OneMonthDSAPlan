@@ -46,11 +46,17 @@ public class dp {
             case 12: //Save princess with maxpoints.
                 System.out.println(savePrincess(input.getNum(in),input.getNumArr(in),in));
                 break;
-            case 13: //Count no of Palindrome Substring
+            case 13: //Count no of Palindrome Continuous Substring
                 System.out.println(countPalindromeSubstring(input.getString(in)));
                 break;
             case 14: //Print longest Palindrome
                 System.out.println(LongPalindromeSubstring(input.getString(in)));
+                break;
+            case 15: //Count no of Palindrome non Continuous Substring
+                System.out.println(countPalindromeSubsequence(input.getString(in)));
+                break;
+            case 16: //Min cost adjacent two element add.
+                System.out.println(minCostAdjacentTwoAdd(input.getNumArr(in)));
                 break;
         }
         in.close();
@@ -305,5 +311,52 @@ public class dp {
             }
         }
         return ans;
+    }
+    public static int countPalindromeSubsequence(String str){
+        int n=str.length();
+        int[][] dp =new int[n][n];
+        for(int i=0;i<n;i++){
+            dp[i][i]=1;
+            if(i<n-1){
+                if(Character.compare(str.charAt(i),str.charAt(i+1))==0) dp[i][i+1]=3;
+                else dp[i][i+1]=2;
+            }
+        }
+        for(int i=3;i<=n;i++){
+            for(int j=0;j<n-i+1;j++){
+                int y=i+j-1;
+                if(Character.compare(str.charAt(j),str.charAt(y))==0) dp[j][y]=1+dp[j][y-1]+dp[j+1][y];
+                else dp[j][y]=1+dp[j][y-1]+dp[j+1][y]-dp[j+1][y-1];
+            }
+        }
+        return dp[0][n-1];
+    }
+    public static int minCostAdjacentTwoAdd(int[] nums){
+        int n=nums.length;
+        int[][] dp = new int[n+1][n+1];
+        for(int i=0;i<n;i++){
+            dp[i+1][i+1]=nums[i];
+            if(i<n-1) dp[i+1][i+2]=nums[i]+nums[i+1];
+        }
+        for(int length=3;length<=n;length++){
+            int i=1;
+            int j=i+length-1;
+            while(j<=n){
+                int k=i,ans=Integer.MAX_VALUE;
+                while(k<j){
+                    int possible = dp[i][k]+dp[k+1][j],axuSum=0;
+                    for(int aux=i-1;aux<j-1;aux++){
+                        axuSum=axuSum+nums[aux];
+                    }
+                    possible=possible+axuSum;
+                    ans=Math.min(ans,possible);
+                    k++;
+                }
+                dp[i][j]=ans;
+                i++;
+                j++;
+            }
+        }
+        return dp[1][n];
     }
 }
